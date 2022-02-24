@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  elasticsearch_1:
+    image: elasticsearch:7.9.0
+    container_name: elasticsearch_1
+    ports:
+      - 9200:9200
+    environment:
+      - discovery.type=single-node
+    networks:
+      - koop-elasticsearch-example-app
+  elasticsearch_2:
+    image: elasticsearch:7.9.0
+    container_name: elasticsearch_2
+    ports:
+      - 9201:9200
+    environment:
+      - discovery.type=single-node
+    networks:
+      - koop-elasticsearch-example-app
+    
+  kibana:
+    image: kibana:7.9.0
+    container_name: kibana_1
+    ports:
+      - 5601:5601
+    networks:
+      - koop-elasticsearch-example-app
+
+networks:
+  koop-elasticsearch-example-app:
+    name: koop-elasticsearch-example-app

@@ -1,0 +1,17 @@
+{
+  "name": "geo-point-index",
+  "version": "1.0.0",
+  "description": "bootstrap-local-geo-point-index",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.6.1",
+    "uuid": "^8.3.2",
+    "axios": "^0.26.0",
+    "proj4": "^2.7.5"
+  }
+}
