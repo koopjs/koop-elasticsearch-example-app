@@ -19,13 +19,25 @@ services:
     networks:
       - koop-elasticsearch-example-app
     
-  kibana:
+  kibana_1:
     image: kibana:7.9.0
     container_name: kibana_1
     ports:
       - 5601:5601
     networks:
       - koop-elasticsearch-example-app
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch_1:9200
+
+  kibana_2:
+    image: kibana:7.9.0
+    container_name: kibana_2
+    ports:
+      - 5602:5601
+    networks:
+      - koop-elasticsearch-example-app
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch_2:9200
 
 networks:
   koop-elasticsearch-example-app:
