@@ -22,7 +22,11 @@ routes.forEach((route) => {
 
 koop.server.get('/hello', (_req, res) => res.json({ message: 'Hello World'}));
 
-https.createServer({ 
-  key: fs.readFileSync('./localhost.key'),
-  cert: fs.readFileSync('./localhost.crt')
-}, koop.server).listen(config.port, () => koop.log.info(`Koop server listening at ${config.port}`))
+// Setup basic http server for local demonstrations, or....
+koop.server.listen(config.port, () => koop.log.info(`Koop server listening at ${config.port}`));
+
+// Use local certificate to host an https server
+// https.createServer({ 
+//   key: fs.readFileSync('./localhost.key'),
+//   cert: fs.readFileSync('./localhost.crt')
+// }, koop.server).listen(config.port, () => koop.log.info(`Koop server listening at ${config.port}`))
